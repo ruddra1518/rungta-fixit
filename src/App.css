@@ -1,10 +1,12 @@
+/* General Reset */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
   margin: 0;
   padding: 0;
 }
 
+/* Centering Wrapper */
 .centered {
   height: 100vh;
   display: flex;
@@ -13,41 +15,83 @@ body {
   align-items: center;
 }
 
+/* Authentication Form */
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 250px;
+  width: 280px;
 }
 
 .auth-form input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.auth-form input:focus {
+  border-color: #2f80ed;
 }
 
 .auth-form button {
-  padding: 10px;
+  padding: 12px;
   background: #2f80ed;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .auth-form button:hover {
   background: #1c60c0;
 }
 
+.auth-form p {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #2f80ed;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Toggle Login Buttons */
+button {
+  padding: 12px 20px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: #d5d5d5;
+}
+
+button.active {
+  background-color: #2f80ed;
+  color: white;
+}
+
+/* Container for forms and dashboard */
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 50px auto;
   background: white;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
+/* Forms inside pages */
 form {
   display: flex;
   flex-direction: column;
@@ -56,29 +100,52 @@ form {
 
 label {
   font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 input, select, textarea {
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #2f80ed;
 }
 
 textarea {
   height: 100px;
+  resize: vertical;
 }
 
-button[type=\"submit\"] {
+button[type="submit"] {
   background-color: #2f80ed;
   color: white;
   font-size: 1rem;
   padding: 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
-button[type=\"submit\"]:hover {
+button[type="submit"]:hover {
   background-color: #1c60c0;
+}
+
+/* Dashboard issue lists */
+.issue-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.issue-card p {
+  margin: 0.3rem 0;
 }
