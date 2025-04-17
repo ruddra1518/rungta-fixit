@@ -42,6 +42,8 @@ function App() {
     }
   };
 
+  const [submittedIssueId, setSubmittedIssueId] = useState('');
+
   const generateIssueId = () => {
     return 'RF-' + Math.floor(100000 + Math.random() * 900000);
   };
@@ -56,17 +58,20 @@ function App() {
       priority,
       location,
       description,
-      status: 'Running'
+      status: 'Running',
     };
     setIssues([...issues, newIssue]);
-    alert(`Issue submitted successfully!\nYour tracking ID: ${id}`);
-    if (userType === 'complainant') alert(`Resolver notified of issue ${id}`);
+    setSubmittedIssueId(id);
+    setPage('issueSubmitted');
+  
+    // Clear form
     setDepartment('');
     setIssue('');
     setPriority('');
     setLocation('');
     setDescription('');
   };
+  
 
   const handleTrack = () => {
     const found = issues.find(i => i.id === trackingId);
@@ -82,7 +87,15 @@ function App() {
   };
 
   const renderHomeButton = () => (
-    <button onClick={() => setPage('auth')} style={{ marginBottom: '20px' }}>Home</button>
+    <button onClick={() => setPage('auth')} style={{
+      backgroundColor: '#467ee5', 
+      color: 'white',
+      padding: '10px 20px',
+      borderRadius: '5px',
+      border: 'none',
+      cursor: 'pointer',
+      fontSize: '16px',
+    }}>Home</button>
   );
 
   if (page === 'splash') {
@@ -145,7 +158,13 @@ function App() {
         <hr style={{ margin: '30px 0' }} />
         <h2>Track Your Issue</h2>
         <input type="text" value={trackingId} onChange={e => setTrackingId(e.target.value)} placeholder="Enter your Issue ID" />
-        <button onClick={handleTrack} style={{ marginTop: '10px' }}>Track</button>
+        <button onClick={handleTrack} style={{ backgroundColor: '#467ee5',
+        color: 'white',
+        padding: '10px 20px',
+        borderRadius: '5px',
+        border: 'none',
+        cursor: 'pointer',
+        fontSize: '16px', marginLeft: '10px', marginTop: '10px' }}>Track</button>
         {trackedIssue && (
           <div className="issue-card" style={{ marginTop: '15px' }}>
             <p><strong>ID:</strong> {trackedIssue.id}</p>
@@ -161,6 +180,22 @@ function App() {
     );
   }
 
+  if (page === 'issueSubmitted') {
+    return (
+      <div className="container" style={{ textAlign: 'center' }}>
+        <h1>Issue Submitted Successfully ✅</h1>
+        <p>Your Tracking ID is:</p>
+        <h2 style={{ color: '#2f80ed' }}>{submittedIssueId}</h2>
+        <button
+          onClick={() => setPage('complainantMain')}
+          style={{ marginTop: '20px', padding: '10px 20px', background: '#2f80ed', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+        >
+          Go to Home
+        </button>
+      </div>
+    );
+  }
+  
   if (page === 'resolverMain') {
     const runningIssues = issues.filter(i => i.status !== 'Resolved');
     const resolvedIssues = issues.filter(i => i.status === 'Resolved');
