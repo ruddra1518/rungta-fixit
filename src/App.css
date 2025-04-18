@@ -38,7 +38,7 @@ body {
 
 .auth-form button {
   padding: 12px;
-  background: #2f80ed;
+  background: #4e3002;
   color: white;
   border: none;
   border-radius: 6px;
@@ -49,7 +49,7 @@ body {
 }
 
 .auth-form button:hover {
-  background: #1c60c0;
+  background: #4e3002;
 }
 
 .auth-form p {
@@ -64,7 +64,7 @@ body {
 /* Toggle Login Buttons */
 button {
   padding: 12px 20px;
-  background-color: #e0e0e0;
+  background-color: #4e3002;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
@@ -73,11 +73,11 @@ button {
 }
 
 button:hover {
-  background-color: #d5d5d5;
+  background-color: #4e3002;
 }
 
 button.active {
-  background-color: #2f80ed;
+  background-color: #4e3002;
   color: white;
 }
 
@@ -114,7 +114,7 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #2f80ed;
+  border-color: #4e3002;
 }
 
 textarea {
@@ -123,7 +123,7 @@ textarea {
 }
 
 button[type="submit"] {
-  background-color: #2f80ed;
+  background-color: #4e3002;
   color: white;
   font-size: 1rem;
   padding: 12px;
@@ -134,7 +134,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #1c60c0;
+  background-color: #9b5d01;
 }
 
 /* Dashboard issue lists */
@@ -145,6 +145,8 @@ button[type="submit"]:hover {
   border-radius: 8px;
   margin-bottom: 1rem;
 }
+
+
 
 .issue-card p {
   margin: 0.3rem 0;

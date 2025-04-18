@@ -29,8 +29,8 @@ function App() {
   const [description, setDescription] = useState('');
 
   useEffect(() => {
-    setTimeout(() => setPage('loading'), 1000);
-    setTimeout(() => setPage('auth'), 2000);
+    setTimeout(() => setPage('loading'), 600);
+    setTimeout(() => setPage('auth'), 1000);
   }, []);
 
   const handleAuth = (e) => {
@@ -46,6 +46,7 @@ function App() {
 
   const generateIssueId = () => {
     return 'RF-' + Math.floor(100000 + Math.random() * 900000);
+    
   };
 
   const handleIssueSubmit = (e) => {
@@ -88,7 +89,7 @@ function App() {
 
   const renderHomeButton = () => (
     <button onClick={() => setPage('auth')} style={{
-      backgroundColor: '#467ee5', 
+      backgroundColor: '#4e3002', 
       color: 'white',
       padding: '10px 20px',
       borderRadius: '5px',
@@ -120,14 +121,14 @@ function App() {
       <div className="centered" style={{ padding: '30px', border: '1px solid #ccc', borderRadius: '10px', backgroundColor: '#f9f9f9', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
         <h2 style={{ marginBottom: '20px', fontSize: '1.8rem', color: '#333' }}>{isRegistered ? 'Login' : 'Register'} ({userType})</h2>
         <form onSubmit={handleAuth} className="auth-form">
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-            <button type="button" onClick={() => setUserType('complainant')} style={{ backgroundColor: userType === 'complainant' ? '#2f80ed' : '#ccc', color: userType === 'complainant' ? 'white' : 'black' }}>Complainant</button>
-            <button type="button" onClick={() => setUserType('resolver')} style={{ backgroundColor: userType === 'resolver' ? '#2f80ed' : '#ccc', color: userType === 'resolver' ? 'white' : 'black' }}>Resolver</button>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px'}}>
+            <button type="button" onClick={() => setUserType('complainant')} style={{ backgroundColor: userType === 'complainant' ? '#4e3002' : '#ccc', color: userType === 'complainant' ? 'white' : 'black' }}>Complainant</button>
+            <button type="button" onClick={() => setUserType('resolver')} style={{ backgroundColor: userType === 'resolver' ? '#4e3002' : '#ccc', color: userType === 'resolver' ? 'white' : 'black' }}>Resolver</button>
           </div>
           <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
           <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
           <button type="submit">{isRegistered ? 'Login' : 'Register'}</button>
-          <p onClick={() => setIsRegistered(!isRegistered)}>{isRegistered ? 'New user? Register here' : 'Already registered? Login'}</p>
+          <p style={{ color:'#4e3002'}} onClick={() => setIsRegistered(!isRegistered)}>{isRegistered ? 'New user? Register here' : 'Already registered? Login'}</p>
         </form>
       </div>
     );
@@ -135,11 +136,11 @@ function App() {
 
   if (page === 'complainantMain') {
     return (
-      <div className="container">
+      <div className="container" >
         {renderHomeButton()}
         <h1>Rungta Fixit - Complainant</h1>
-        <form onSubmit={handleIssueSubmit}>
-          <select value={department} onChange={e => setDepartment(e.target.value)}>
+        <form  onSubmit={handleIssueSubmit}>
+          <select styles={{  }}  value={department} onChange={e => setDepartment(e.target.value)}>
             <option value="">Select Department</option>
             {departments.map(dep => <option key={dep} value={dep}>{dep}</option>)}
           </select>
@@ -158,7 +159,7 @@ function App() {
         <hr style={{ margin: '30px 0' }} />
         <h2>Track Your Issue</h2>
         <input type="text" value={trackingId} onChange={e => setTrackingId(e.target.value)} placeholder="Enter your Issue ID" />
-        <button onClick={handleTrack} style={{ backgroundColor: '#467ee5',
+        <button onClick={handleTrack} style={{ backgroundColor: '#4e3002',
         color: 'white',
         padding: '10px 20px',
         borderRadius: '5px',
@@ -185,10 +186,10 @@ function App() {
       <div className="container" style={{ textAlign: 'center' }}>
         <h1>Issue Submitted Successfully ✅</h1>
         <p>Your Tracking ID is:</p>
-        <h2 style={{ color: '#2f80ed' }}>{submittedIssueId}</h2>
+        <h2 style={{ color: '#4e3002' }}>{submittedIssueId}</h2>
         <button
           onClick={() => setPage('complainantMain')}
-          style={{ marginTop: '20px', padding: '10px 20px', background: '#2f80ed', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+          style={{ marginTop: '20px', padding: '10px 20px', background: '#4e3002', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
         >
           Go to Home
         </button>
