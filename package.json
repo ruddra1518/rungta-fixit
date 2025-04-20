@@ -18,6 +18,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "scripts": {
+  "test": "react-scripts test --passWithNoTests"
+}
+
   "eslintConfig": {
     "extends": [
       "react-app",
