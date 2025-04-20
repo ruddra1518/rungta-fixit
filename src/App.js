@@ -78,15 +78,6 @@ function App() {
     const found = issues.find(i => i.id === trackingId);
     setTrackedIssue(found || null);
   };
-
-  const markAsSolving = (id) => {
-    setIssues(issues.map(i => i.id === id ? { ...i, status: 'Solving' } : i));
-  };
-
-  const markAsResolved = (id) => {
-    setIssues(issues.map(i => i.id === id ? { ...i, status: 'Resolved' } : i));
-  };
-
   const renderHomeButton = () => (
     <button onClick={() => setPage('auth')} style={{
       backgroundColor: '#4e3002', 
